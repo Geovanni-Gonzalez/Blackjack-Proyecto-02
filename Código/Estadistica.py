@@ -1,15 +1,17 @@
-import random
-import Carta
-
-class Mazo:
+class Estadisticas:
     def __init__(self):
-        palos = ['Corazones', 'Diamantes', 'Tréboles', 'Picas']
-        valores = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        self.cartas = [Carta(palo, valor) for palo in palos for valor in valores]
-        self.barajar()
+        self.partidas_jugadas = 0
+        self.victorias = {}
+        self.precision_decisiones = {}
 
-    def barajar(self):
-        random.shuffle(self.cartas)
+    def actualizar_estadisticas(self, jugador, resultado):
+        self.partidas_jugadas += 1
+        if jugador.nombre not in self.victorias:
+            self.victorias[jugador.nombre] = 0
+        if resultado == "Ganó":
+            self.victorias[jugador.nombre] += 1
 
-    def repartir_carta(self):
-        return self.cartas.pop() if self.cartas else None
+    def mostrar_resumen(self):
+        print(f"Partidas jugadas: {self.partidas_jugadas}")
+        for jugador, victorias in self.victorias.items():
+            print(f"{jugador}: {victorias} victorias")

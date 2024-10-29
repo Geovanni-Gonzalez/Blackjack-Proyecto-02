@@ -2,18 +2,18 @@ class Jugador:
     
     def __init__(self, nombre, es_humano=True):
         self.nombre = nombre
-        self.es_humano = es_humano
         self.mano = []
         self.puntaje = 0
+        self.es_humano = es_humano
 
-    def pedir_carta(self, mazo):
+    def hit(self, mazo):
         carta = mazo.repartir_carta()
         if carta:
             self.mano.append(carta)
             self.calcular_puntaje()
 
-    def plantarse(self):
-        pass  # Esta acción se representa como "quedarse con la mano actual"
+    def stand(self):
+        pass    # No hace nada, solo se queda en la mano actual
 
     def calcular_puntaje(self):
         total = 0
