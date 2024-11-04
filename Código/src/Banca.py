@@ -1,6 +1,7 @@
-import src.Jugador as Jugador
+import Jugador
 
 class Banca(Jugador):
+    
     def __init__(self):
         super().__init__("Banca", es_humano=False)
 
