@@ -1,6 +1,6 @@
-import Mazo
-import Jugador
-import JugadorIA
+import Código.src.Mazo as Mazo
+import src.Jugador as Jugador
+import Código.src.JugadorIA as JugadorIA
 
 class Juego:
     def __init__(self, modoDeJuego):
@@ -22,10 +22,11 @@ class Juego:
     def jugar_ronda(self):
         for jugador in self.jugadores:
             while jugador.puntaje < 21:
-                pass
-
-                
-
+                accion = jugador.tomar_decision()
+                if accion == "hit":
+                    jugador.pedir_carta(self.mazo)
+                elif accion == "stand":
+                    break
 
         # Turno de la banca
         while self.banca.puntaje < 17:

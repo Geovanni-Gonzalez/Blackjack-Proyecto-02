@@ -1,4 +1,4 @@
-import Jugador
+import src.Jugador as Jugador
 
 class Banca(Jugador):
     def __init__(self):

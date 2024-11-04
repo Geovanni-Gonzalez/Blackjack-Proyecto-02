@@ -1,5 +1,5 @@
 import random
-import Carta
+import Código.src.Carta as Carta
 
 """
 Representa un mazo de cartas para un juego de blackjack.
